@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình chữ nhật</title>
+</head>
+<body>
+<canvas id="Mycanvas" width="1340px" height="440px" style="border: 1px solid #d3d3d3;"></canvas>
+<script>
+    let Rectangle = function (x, y, height, width) {
+        this.x = x;
+        this.y = y;
+        this.height = height;
+        this.width = width;
+        this.getHeight = function () {
+            return this.height;
+        };
+        this.getWidth = function () {
+            return this.width;
+        };
+        this.getDiameter = function () {
+            return (width + height) * 2;
+        };
+        this.getArea = function () {
+            return width * height
+        };
+    };
+    let rectangle = new Rectangle(200, 200 ,600, 200);
+    let height = rectangle.getHeight();
+    let width = rectangle.getWidth();
+    let diameter = rectangle.getDiameter();
+    let area = rectangle.getArea();
+    document.write("Hình chữ nhật" + "<br>" + "Chu vi: " + diameter + "<br>" + "Diện tích: " + area);
+    function create() {
+        let ctx = document.getElementById("Mycanvas").getContext("2d");
+        ctx.beginPath();
+        ctx.rect(rectangle.x, rectangle.y, height, width);
+        ctx.fill();
+    }
+    create();
+</script>
+</body>
+</html>
